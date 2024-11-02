@@ -1,0 +1,148 @@
+.text-success {
+  color: rgb(82, 255, 82);
+}
+
+.card {
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 0.375rem;
+  margin: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card-img-top {
+  object-fit: cover; 
+  height: 220px;
+  width: 100%;
+  border-radius: 0.375rem;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+
+.head {
+  margin: 0;
+  padding: 0;
+}
+
+i {
+  font-size: 24px;
+}
+
+.filter-container {
+  position: sticky; 
+  top: 0; 
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #f8f9fa; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000; 
+  padding: 1rem; 
+}
+
+.filter h2 {
+  padding: 1rem;
+  background-color: #e9ecef; 
+  margin-bottom: 0;
+}
+
+.filter .list-group-item {
+  border: none; 
+}
+
+.filter .btn-link {
+  color: #0000; 
+  font-weight: 400; 
+}
+
+.filter .list-group-item:hover {
+  background-color: rgba(0, 0, 0, 0.1); 
+  color: white; 
+}
+
+@media (max-width: 768px) {
+  .col-sm-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .card {
+    margin: 10px 0;
+  }
+  .card-img-top {
+    height: 150px;
+  }
+}
+
+@media (min-width: 769px) {
+  .col-sm-4 {
+    flex: 1 0 30%;
+    max-width: 30%;
+  }
+  .card {
+    margin: 20px;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card-img-top {
+    object-fit: cover; 
+    height: 220px;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination a {
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #007bff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.pagination a:hover {
+  background-color: #f0f0f0;
+}
+
+.pagination .active a {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.position-absolute .fa-heart {
+  font-size: 24px;
+  color: yellow; 
+  cursor: pointer;
+}
+
+.position-absolute .fa-heart.text-danger {
+  color: red; 
+}

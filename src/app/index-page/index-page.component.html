@@ -1,0 +1,71 @@
+<main class="container my-5">
+  <div class="hero d-flex justify-content-between align-items-center mb-5">
+    <div class="about d-flex flex-column justify-content-center text-center">
+      <h1 class="display-4 font-weight-bold">AUTO GEER</h1>
+      <p class="m-4 lead">
+        AUTO GEER is your one-stop destination for high-quality car parts and accessories.
+        Discover a wide range of products designed to meet the needs of every car enthusiast.
+        From performance upgrades to essential components, we offer the best deals to keep your vehicle in top shape.
+      </p>
+      <div class="mx-auto">
+        <a class="btn btn-primary btn-lg" href="/products"><i class="fas fa-car"></i> Show All Products</a>
+      </div>
+    </div>
+    <img src="logo.png" alt="Auto Geer Logo" class="img-fluid">
+  </div>
+  <hr>
+
+  <div class="categories-section my-5 px-4 py-5">
+    <h1 class="bg-dark text-white p-3 mb-5 text-center rounded">What are you looking for?</h1>
+    <div class="row justify-content-center">
+      <div *ngFor="let category of categories" class="col-md-3 mb-4">
+        <div class="card text-center shadow-sm" (click)="onCategoryClick(category.title)">
+          <img [src]="category.image" class="card-img-top" alt="{{ category.title }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ category.title }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <div class="about-us my-5">
+    <h2 class="text-center mb-4"><i class="fas fa-info-circle"></i> About Us</h2>
+    <p class="text-center">
+      <i class="fas fa-warehouse"></i> AUTO GEER has been a leader in the car parts industry for over a decade.
+      Our mission is to provide customers with the best quality car parts and accessories at competitive prices.
+      We are committed to customer satisfaction and strive to offer the best shopping experience with fast delivery and
+      excellent service.
+    </p>
+    <p class="text-center">
+      <i class="fas fa-tools"></i> Whether you're a professional mechanic or a car enthusiast, AUTO GEER is here
+      to help you find the parts you need to keep your vehicle running smoothly.
+    </p>
+  </div>
+  <hr>
+
+  <div class="services my-5">
+    <h2 class="text-center mb-4"><i class="fas fa-concierge-bell"></i> Our Services</h2>
+    <div class="row text-center">
+      <div class="col-md-4 mb-4">
+        <i class="fas fa-shipping-fast fa-3x mb-3"></i>
+        <h5>Fast Shipping</h5>
+        <p>We ensure quick delivery for all our products across the country.</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <i class="fas fa-shield-alt fa-3x mb-3"></i>
+        <h5>Quality Guarantee</h5>
+        <p>All our products are of top-notch quality, ensuring reliability and durability.</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <i class="fas fa-headset fa-3x mb-3"></i>
+        <h5>24/7 Support</h5>
+        <p>Our customer support team is available around the clock to assist you.</p>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+
+</main>

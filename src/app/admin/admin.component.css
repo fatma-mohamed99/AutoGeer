@@ -1,0 +1,100 @@
+body {
+    height: 100vh;
+    background-color: red;
+    overflow: auto;
+  }
+  
+  .left-bar {
+    width: 20%;
+    height: 900px;
+    background-color: #212529;
+    padding: 20px;
+    margin-right: 10px;
+    position: absolute;
+    color: #fff;
+  }
+  
+  .bar-body{
+      display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .profile {
+    background-color: rgb(41, 52, 62);
+    border-radius: 5px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    width: 100%;
+  }
+  
+  .avatar {
+    width: 150px;
+    border-radius: 50%;
+    background-color: #343a40;
+    margin-bottom: 20px;
+  }
+  .avatar img {
+      width: 100%;
+      border-radius: 50%;
+  }
+  
+  .product {
+    margin-left: 240px;
+    height: 80vh;
+    overflow: auto;
+    background-color: #f4f4f4;
+    
+  }
+  .header{
+    display: flex;
+  }
+  .product .header{
+      margin-top: 20px;
+  }
+  .header button{
+    padding: 10px 30px
+  }
+  
+  
+  .header button:first-child {
+    margin-right: 50px;
+    
+  }
+  
+  .image-parent {
+    width: 140px;
+    height: 50px;
+  }
+  
+  /* .total-product{
+    width: 334px;
+    height: 255px;
+    background-color: #e5373770;
+    border-radius: 50px;
+    padding: 30px
+  } */
+  
+  @media (max-width: 768px) {
+    .col-sm-4 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  
+    .card {
+      margin: 10px 0;
+    }
+  
+    .card-img-top {
+      height: 150px;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .card {
+      margin: 20px;
+    }
+  }
+  

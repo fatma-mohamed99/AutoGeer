@@ -1,0 +1,62 @@
+.card {
+    transition: box-shadow 0.3s ease-in-out;
+    height: 100%;
+    
+    margin-bottom: 20px; 
+      
+  }
+  
+  .card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .product-image {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-text {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .btn-sm {
+    font-size: 0.8rem;
+  }
+  
+  .favorite-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .favorite-btn i {
+    font-size: 1.2rem;
+  }
+  
+  .fa-heart {
+    transition: color 0.3s ease;
+  }
+  
+  .fa-heart:hover {
+    color: #dc3545;
+  }

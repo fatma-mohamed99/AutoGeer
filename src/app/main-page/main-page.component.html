@@ -1,0 +1,78 @@
+<div class="relative position-relative d-flex">
+  <aside class="filter-container">
+    <div class="filter">
+      <h2 class="h4 font-weight-bold mb-4">Filter</h2>
+      <ul class="list-group">
+
+        <li class="list-group-item border-0 p-0 my-2" *ngFor="let category of categories">
+          <button class="btn  text-start w-100 py-2 px-3 text-dark" (click)="onCategoryChange(category.title)">
+            {{ category.title }}
+          </button>
+        </li>
+        <li class="list-group-item border-0 p-0">
+          <button class="btn btn-link text-start w-100 py-2 px-3 text-dark" (click)="onCategoryChange('All')">
+            All
+          </button>
+        </li>
+      </ul>
+    </div>
+  </aside>
+  <main class="container content mb-5">
+    <div class="row mt-5">
+      <div class="col-sm-4 mb-4" *ngFor="let product of filteredProducts">
+        <div class="card p-3">
+          <div class="position-relative">
+            <img [src]="product.image" class="card-img-top" [alt]="product.title">
+            <div class="position-absolute top-0 end-0 m-2" (click)="toggleFavorite(product)">
+              <i class="fa fa-heart"
+                [ngClass]="{'text-danger': isFavorite(product), 'text-warning': !isFavorite(product)}"></i>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mt-2">
+            <small class="star text-light p-1 rounded-1"
+              [ngClass]="{'bg-success': product.quantity > 0, 'bg-danger': product.quantity <= 0}">
+              {{ product.quantity > 0 ? 'IN STOCK' : 'OUT OF STOCK' }}
+            </small>
+            <h6 class="price text-success mb-0">&dollar;{{ product.price }}</h6>
+          </div>
+          <hr class="mt-2 mx-3">
+          <div class="d-flex flex-row justify-content-center mb-3 px-3">
+            <ng-container *ngIf="isTitleLong(product.title); else shortTitle">
+              <h5 class="mb-0 text-nowrap text-center">{{ product.title }}</h5>
+            </ng-container>
+            <ng-template #shortTitle>
+              <h5 class="mb-0 text-nowrap text-center">{{ product.title }}</h5>
+            </ng-template>
+          </div>
+          <div class="d-flex flex-column mt-1 mb-2 w-100">
+            <button type="button" class="btn btn-primary mb-2" (click)="addToCart(product)">ADD TO CART</button>
+            <button type="button" class="btn btn-outline-primary mb-2" (click)="handleData(product._id)">VIEW
+              DETAIL</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<nav aria-label="...">
+  <ul class="pagination">
+    <li (click)="onPrevClick2()" class="page-item" [ngClass]="{'disabled': currentPage === 1}">
+      <a class="page-link">Previous</a>
+    </li>
+
+    <li *ngFor="let page of pagesArr; let i = index" (click)="onPageChange2(page)" class="page-item"
+      [ngClass]="{'active': currentPage === page}">
+      <a class="page-link">{{ page }}</a>
+    </li>
+    <li *ngIf="pagesArr.length === 0">
+      <p>No Data found</p>
+    </li>
+
+    <li (click)="onNextClick2()" class="page-item" [ngClass]="{'disabled': currentPage === totalPages}">
+      <a class="page-link">Next</a>
+    </li>
+  </ul>
+  <div>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+  </div>
+</nav>

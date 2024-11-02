@@ -1,0 +1,56 @@
+.navbar {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-nav .nav-item .nav-link {
+  margin-left: 15px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  transition: color 0.3s, background-color 0.3s; 
+}
+
+.navbar-nav .nav-item .nav-link.active {
+  color: #00ff00;
+  font-weight: bold;
+  border-bottom: 2px solid #ffcc00;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  color: #ffcc00;
+  background-color: #444;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.dropdown-menu {
+  z-index:5;
+  border-radius: 0.5rem;
+  background-color: #333;
+  color: #fff;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #555;
+  color: #ffcc00;
+}
+
+.numberOfItems {
+  position: absolute;
+  top: -5px;
+  right: 0px;
+  background-color: #ffcc00;
+  color: #000;
+  font-size: 12px;
+  padding: 3px 7px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.light {
+  transform: scale(1.2);
+  font-weight: bold;
+}

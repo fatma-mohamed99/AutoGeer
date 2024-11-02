@@ -1,0 +1,118 @@
+<div class="container">
+  <h2>Add Product</h2>
+
+  <div *ngIf="isLoading" class="loading-spinner">
+    Adding product...
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading && !errorMessage">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input id="title" formControlName="title" type="text" placeholder="Enter product title" />
+      <div *ngIf="productForm.get('title')?.invalid && productForm.get('title')?.touched" class="error-message">
+        Title is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description" placeholder="Enter product description"></textarea>
+      <div *ngIf="productForm.get('description')?.invalid && productForm.get('description')?.touched" class="error-message">
+        Description is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price:</label>
+      <input id="price" formControlName="price" type="number" placeholder="Enter product price" />
+      <div *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched" class="error-message">
+        Valid price is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="quantity">Quantity:</label>
+      <input id="quantity" formControlName="quantity" type="number" placeholder="Enter quantity" />
+      <div *ngIf="productForm.get('quantity')?.invalid && productForm.get('quantity')?.touched" class="error-message">
+        Valid quantity is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category:</label>
+      <input id="category" formControlName="category" type="text" placeholder="Enter category" />
+      <div *ngIf="productForm.get('category')?.invalid && productForm.get('category')?.touched" class="error-message">
+        Category is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="manufacturer">Manufacturer:</label>
+      <input id="manufacturer" formControlName="manufacturer" type="text" placeholder="Enter manufacturer" />
+      <div *ngIf="productForm.get('manufacturer')?.invalid && productForm.get('manufacturer')?.touched" class="error-message">
+        Manufacturer is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="image">Image URL:</label>
+      <input id="image" formControlName="image" type="text" placeholder="Enter image URL" />
+      <div *ngIf="productForm.get('image')?.invalid && productForm.get('image')?.touched" class="error-message">
+        Image URL is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="manufactureCountry">Manufacture Country:</label>
+      <input id="manufactureCountry" formControlName="manufactureCountry" type="text" placeholder="Enter manufacture country" />
+      <div *ngIf="productForm.get('manufactureCountry')?.invalid && productForm.get('manufactureCountry')?.touched" class="error-message">
+        Manufacture country is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="vehicleType">Vehicle Type:</label>
+      <input id="vehicleType" formControlName="vehicleType" type="text" placeholder="Enter vehicle type" />
+      <div *ngIf="productForm.get('vehicleType')?.invalid && productForm.get('vehicleType')?.touched" class="error-message">
+        Vehicle type is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="vehicleYear">Vehicle Year:</label>
+      <input id="vehicleYear" formControlName="vehicleYear" type="text" placeholder="Enter vehicle year" />
+      <div *ngIf="productForm.get('vehicleYear')?.invalid && productForm.get('vehicleYear')?.touched" class="error-message">
+        Vehicle year is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="vehicleMaker">Vehicle Maker:</label>
+      <input id="vehicleMaker" formControlName="vehicleMaker" type="text" placeholder="Enter vehicle maker" />
+      <div *ngIf="productForm.get('vehicleMaker')?.invalid && productForm.get('vehicleMaker')?.touched" class="error-message">
+        Vehicle maker is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="vehicleModel">Vehicle Model:</label>
+      <input id="vehicleModel" formControlName="vehicleModel" type="text" placeholder="Enter vehicle model" />
+      <div *ngIf="productForm.get('vehicleModel')?.invalid && productForm.get('vehicleModel')?.touched" class="error-message">
+        Vehicle model is required.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="productForm.invalid || isLoading" class="btn btn-primary">
+      <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      {{ isLoading ? 'Adding Product...' : 'Add Product' }}
+    </button>
+  </form>
+</div>

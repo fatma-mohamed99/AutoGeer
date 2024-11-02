@@ -1,0 +1,66 @@
+<div class="navbar navbar-expand-lg navbar-dark bg-dark px-2 ">
+  <nav class="container d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+      <a class="navbar-brand d-flex align-items-center mx-2" href="/">
+        <i class="fa-solid fa-house me-2 h4"></i>
+        <span class="h5">Auto GEAR</span>
+      </a>
+      <a class="nav-link text-light d-flex align-items-center  rounded px-3 " routerLink="/products"
+        routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <i class="fa-brands fa-product-hunt h4 me-1 text-light"></i>
+        <span class="h6 text-light">roducts</span>
+      </a>
+    </div>
+
+    <ul class="navbar-nav ms-auto d-flex align-items-center">
+      <ng-container *ngIf="!login; else loggedInTemplate">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <i class="fa-solid fa-lock me-1"></i> Login
+          </a>
+        </li>
+      </ng-container>
+
+      <ng-template #loggedInTemplate>
+        <li class="nav-item ">
+          <a class="nav-link" routerLink="/" (click)="logOut()">
+            <i class="fa-solid fa-sign-out-alt me-1"></i> Log Out
+          </a>
+        </li>
+      </ng-template>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <i class="fa-solid fa-user me-1"></i> Your Details
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <li>
+            <a class="dropdown-item text-light" routerLink="/favorites" routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }">
+              <i class="fa-solid fa-heart me-2"></i> Favorites
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item text-light" routerLink="/orders" routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }">
+              <i class="fa-solid fa-box me-2"></i> Orders
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item position-relative">
+        <a class="nav-link  " routerLink="/card" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <i class="fa-solid fa-cart-shopping z-1"></i> <span class="numberOfItems"
+            [ngClass]="{'light': totalItems> 0, 'red': totalItems <= 0}">{{totalItems}}</span>
+        </a>
+      </li>
+
+
+      <li class="nav-item ">
+        <a class="nav-link" routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <i class="fa-solid fa-user-shield me-1"></i> Admin
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

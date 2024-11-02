@@ -1,0 +1,81 @@
+@if (cartItems.length >0 && isCheckOut==="ok" ) {
+<div>
+
+  <table class="container table table-bordered table-striped cart-table ">
+    <thead class="thead-dark ">
+      <tr>
+        <th scope="col">Product</th>
+        <th scope="col">Description</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scope="col">Total</th>
+        <th scope="col">Stock Status</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartItems">
+        <td>
+          <img [src]="item.image" alt="{{ item.title }}" class="product-thumbnail img-fluid">
+          <p>{{ item.title }}</p>
+        </td>
+        <td>{{ item.description }}</td>
+        <td>
+          <input type="number" [(ngModel)]="item.quantity" (change)="updateCart(item)" min="1" [max]="item.quantity"
+            class="form-control">
+        </td>
+        <td>{{ item.price }}</td>
+        <td>{{ item.price * item.quantity }}</td>
+        <td>{{ item.quantity > 0 ? 'In Stock' : 'Out of Stock' }}</td>
+        <td>
+          <button class="border-0 REMOVE h4 bg-transparent" (click)="removeFromCart(item)" aria-label="Remove item">
+            <i class="fa fa-trash bg-transparent"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div  class="cart-summary d-flex justify-content-between align-items-center h5 p-3 border rounded mt-3">
+    <div>
+      <span class="fw-bold">Total Items:</span>
+      <span class="text-primary">{{ totalItems }}</span>
+    </div>
+    <div>
+      <span class="fw-bold">Total Price:</span>
+      <span class="text-primary">{{ totalPrice }}</span>
+    </div>
+    <button class="btn btn-primary" (click)="checkout()">
+      <i class="fa fa-credit-card"></i> BUY NOW
+    </button>
+  </div>
+</div>
+
+} @else if(cartItems.length >0 && isCheckOut==="null") {
+<div class="thank  d-flex flex-column ">
+  <img src="thanksImage.webp" class="w-100 position-relative" alt="loooodin............">
+
+ <a class="btn btn-primary position-absolute top-50 start-50" routerLink="/" >
+   <span>home</span>
+  </a>
+
+</div>
+ 
+
+} @else {
+  <div class="empty-cart-container text-center bg-transparent">
+    <div class="empty-cart-content">
+      <i class="fa fa-shopping-cart fa-4x empty-cart-icon"></i>
+      <h3>Your cart is empty</h3>
+      <p>It looks like you haven't added anything to your cart yet. Start shopping to find something you love!</p>
+      <div class="mt-4 d-flex justify-content-evenly">
+        <a class="btn btn-primary btn-lg" href="####">
+          <i class="fa fa-shopping-bag"></i> Browse Products
+        </a>
+        <a class="btn btn-outline-primary btn-lg" href="####">
+          <i class="fa fa-tags"></i> View Latest Deals
+        </a>
+      </div>
+    </div>
+  </div>
+
+}

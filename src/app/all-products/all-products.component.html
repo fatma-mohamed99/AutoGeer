@@ -1,0 +1,46 @@
+<div class="container">
+  <h2 class="my-4">Products</h2>
+  
+  <div class="row">
+    <div class="col-12">
+      <div class="table-responsive">
+        <table class="table table-rounded">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Image</th>
+              <th scope="col">Price</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products" class="align-middle">
+              <td class="ps-5 text-primary">
+                <h6>{{ product.title }}</h6>
+              </td>
+              <td>
+                <div class="image-parent thumbnail">
+                  <img [src]="product.image" alt="{{ product.title }}" class="img-fluid" />
+                </div>
+              </td>
+              <td>
+                <h6 class="price text-primary">&dollar;{{ product.price }}</h6>
+              </td>
+              <td>
+                <button type="button" class="btn btn-outline-success" (click)="handleData(product._id)">
+                  Edit
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger" (click)="deleteProduct(product._id)">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

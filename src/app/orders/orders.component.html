@@ -1,0 +1,74 @@
+@if((this.auth.isLoggedIn())) { @if(this.orders.length===0){
+  <section class="no-orders-section d-flex justify-content-center align-items-center my-5 py-5 bg-light">
+    <div class="text-center">
+      <img src="noorder.jpg" alt="No Orders" class="img-fluid mb-4" style="max-width: 150px;">
+      <h3 class="font-weight-bold">No Orders Yet</h3>
+      <p class="text-muted">You haven't placed any orders yet. Start shopping now!</p>
+      <a href="/products" class="btn btn-primary mt-3"><i class="fa-solid fa-shopping-cart me-2"></i>Browse Products</a>
+    </div>
+  </section>} @else {
+
+<div class="container mt-5 mb-5">
+  <div class="d-flex justify-content-center row">
+    <div class="col-md-10">
+      <div class="receipt bg-light-subtle p-3 rounded">
+        <h4 class="mt-2 mb-3">Your Orders</h4>
+
+        <hr />
+        <br />
+        @for( order of this.orders ; track order._id){
+        <div class="receipt bg-body-tertiary p-3 rounded">
+          <div class="d-flex flex-row justify-content-between align-items-center order-details">
+            <div>
+              <span class="d-block fs-12">Order Date</span><span
+                class="font-weight-bold">{{order.createdAt.substring(0,order.createdAt.indexOf('T'))}}</span>
+            </div>
+            <div>
+              <span class="d-block fs-12">Order Id</span><span class="font-weight-bold">{{order._id}}</span>
+            </div>
+            <div>
+              <span class="d-block fs-12">Payment method</span><span class="font-weight-bold">Cash</span>
+            </div>
+          </div>
+          <hr />
+          <br />
+
+
+          @for( item of order.items ; track item._id){
+          <div class="d-flex justify-content-between align-items-center product-details">
+            <div class="d-flex flex-row product-name-image">
+              <img class="rounded" src={{item.image}} width="80" />
+            </div>
+            <div class="d-flex flex-column justify-content-between ml-2">
+              <div>
+                <span class="d-block font-weight-bold p-name">{{item.item}}</span>
+                <span class="fs-12">Item_Id : {{item._id}}</span>
+              </div>
+              <span class="fs-12">Qty : {{item.quantity}}</span>
+            </div>
+
+            <div class="product-price">
+              <h6>${{item.price}}</h6>
+            </div>
+          </div>
+          <br />
+          }
+
+
+          <br />
+          <hr />
+
+          <div class="d-flex justify-content-between mt-1">
+            <span class="font-weight-bold">Total</span><span
+              class="font-weight-bold text-success">${{order.totalPrice}}</span>
+          </div>
+        </div>
+        <br />
+        }
+
+      </div>
+    </div>
+  </div>
+</div>
+
+} }

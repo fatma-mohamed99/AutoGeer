@@ -1,0 +1,36 @@
+.card {
+  cursor:pointer;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card-img-top {
+  width: 80%;
+  margin:0 auto;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1.5rem; 
+}
+.card-title {
+  font-size: 1.25rem;
+  margin: 10px 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.row.justify-content-center {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,54 @@
+<div class="left-bar">
+    <div class="bar-body">
+
+
+        <div class="profile">
+            <h4>Profile </h4>
+        </div>
+        <div class="avatar">
+            <img src="https://img.freepik.com/free-psd/3d-rendering-avatar_23-2150833546.jpg" alt="">
+        </div>
+
+        <div class="elements">
+            <h3>username</h3>
+            <h5>total elements 20</h5>
+            <div class="logout">
+                <a class="nav-link">
+                    <button type="button" class="btn btn-info" (click)="onLogout()">
+                        Logout
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container content d-flex justify-content-center mb-5">
+
+
+    <div class="row mt-5 w-100 product">
+        <div class="header">
+
+            <a class="nav-link" routerLink="/admin/allproducts">
+                <button type="button" class="btn btn-info">
+                    All Products
+                </button>
+            </a>
+
+            <a class="nav-link" routerLink="/admin/addProduct">
+                <button type="button" class="btn btn-outline-success">
+                    Add Product 🔧
+                </button>
+            </a>
+
+        </div>
+
+
+        <router-outlet></router-outlet>
+
+
+
+    </div>
+</div>

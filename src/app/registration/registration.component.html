@@ -1,0 +1,145 @@
+<div class="container mt-2 mb-5 w-100">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="registration d-flex flex-column">
+        <h2 class="text-center mb-4">Registration</h2>
+        <form
+          #registrationForm="ngForm"
+          (ngSubmit)="onSubmit(registrationForm)"
+          novalidate
+        >
+          <div class="mb-3">
+            <label for="firstName" class="form-label">First Name:</label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              class="form-control"
+              [(ngModel)]="form.firstName"
+              #firstName="ngModel"
+              required
+              pattern="[a-zA-Z]+"
+              aria-describedby="firstNameHelp"
+            />
+            <span
+              *ngIf="
+                firstName.invalid && (firstName.dirty || firstName.touched)
+              "
+              class="text-danger"
+            >
+              First name is required and should contain only letters.
+            </span>
+          </div>
+
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name:</label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              class="form-control"
+              [(ngModel)]="form.lastName"
+              #lastName="ngModel"
+              required
+              pattern="[a-zA-Z]+"
+              aria-describedby="lastNameHelp"
+            />
+            <span
+              *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+              class="text-danger"
+            >
+              Last name is required and should contain only letters.
+            </span>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              [(ngModel)]="form.email"
+              #email="ngModel"
+              required
+              aria-describedby="emailHelp"
+            />
+            <span
+              *ngIf="email.invalid && (email.dirty || email.touched)"
+              class="text-danger"
+            >
+              A valid email is required.
+            </span>
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-control"
+              [(ngModel)]="form.password"
+              #password="ngModel"
+              required
+              minlength="8"
+              aria-describedby="passwordHelp"
+            />
+            <small id="passwordHelp" class="form-text text-muted">
+              Password should be at least 8 characters long.
+            </small>
+            <span
+              *ngIf="password.invalid && (password.dirty || password.touched)"
+              class="text-danger"
+            >
+              Password is required.
+            </span>
+          </div>
+
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label"
+              >Confirm Password:</label
+            >
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              class="form-control"
+              [(ngModel)]="form.confirmPassword"
+              #confirmPassword="ngModel"
+              required
+              [pattern]="password.value"
+              aria-describedby="confirmPasswordHelp"
+            />
+            <span
+              *ngIf="
+                confirmPassword.invalid &&
+                (confirmPassword.dirty || confirmPassword.touched)
+              "
+              class="text-danger"
+            >
+              Please confirm your password.
+            </span>
+            <span
+              *ngIf="
+                password.value !== confirmPassword.value &&
+                confirmPassword.dirty
+              "
+              class="text-danger"
+            >
+              Passwords do not match.
+            </span>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary w-100"
+            [disabled]="registrationForm.invalid"
+          >
+            Register
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
